@@ -1,6 +1,7 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { FaDownload, FaBriefcase } from "react-icons/fa";
+import { FaDownload, FaBriefcase,FaGithub, FaLinkedin} from "react-icons/fa";
+import { FaSquareWhatsapp } from "react-icons/fa6";
 
 const Home = () => {
   return (
@@ -38,6 +39,14 @@ const Home = () => {
             Resume
           </a>
         </button>
+      </div>
+      {/* links */}
+      <div className="flex text-2xl gap-4 px-12">
+        <a href="https://github.com/keshavchandel13" className="text-white hover:text-current" target="blank"><FaGithub/></a>
+        <a href="https://www.linkedin.com/in/keshav-chandel-9ba2a7186/?originalSubdomain=in" className="text-blue-800 hover:text-blue-900" target="blank"><FaLinkedin/></a>
+        <a href="" className="text-green-500 hover:text-green-800" target="blank"><FaSquareWhatsapp/></a>
+        
+
       </div>
     </div>
   );

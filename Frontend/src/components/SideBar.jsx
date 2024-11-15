@@ -43,7 +43,7 @@ const SideBar = () => {
       <nav
         className={`fixed bg-gray-900 h-screen ${
           isVisible ? "w-64" : "w-0"
-        } overflow-hidden transition-all duration-300`}
+        } overflow-hidden transition-all duration-300 z-40`}
       >
         <div className={`flex flex-col items-center p-4 ${isVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}>
           <img
