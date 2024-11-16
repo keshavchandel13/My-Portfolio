@@ -18,7 +18,6 @@ function App() {
         <section id="education" className=""><Education/></section>
         <section id="tech-stack" className=""><TechStack/></section>
         <section id="projects" className=""><Projects/></section>
-
         <section id="contact" className=""><ContactUs/></section>
 
       </main>
