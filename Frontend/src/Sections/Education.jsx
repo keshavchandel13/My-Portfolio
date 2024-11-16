@@ -7,19 +7,19 @@ const educationData = [
     institution: "Jaypee University Of Information Technology Waknaghat, H.P  ",
     degree: "Bachelor's in Computer Science",
     dates: "2023 - Present",
-    image: "/public/juit.jpg", 
+    image: "/juit.jpg", 
   },
   {
     institution: "Govt Sen. Sec. School Bagwara, H.P",
     degree: "10+2",
     dates: "2022 - 2023",
-    image: "/public/bagwaraSchool.jpeg", 
+    image: "/bagwaraSchool.jpeg", 
   },
   {
     institution: "DAV Public Sen. Sec. School Greyoh, H.P",
     degree: "Matriculation",
     dates: "2021 - 2022",
-    image: "/public/dav2.jpeg", 
+    image: "/dav2.jpeg", 
   },
 ];
 
