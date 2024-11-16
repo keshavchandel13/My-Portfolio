@@ -5,7 +5,7 @@ import About from "./Sections/About";
 import Education from "./Sections/Education";
 import TechStack from "./Sections/TechStack";
 import Projects from "./Sections/Projects";
-import WorkExperience from './sections/WorkExperience';
+
 import ContactUs from "./Sections/ContactUs";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <section id="education" className=""><Education/></section>
         <section id="tech-stack" className=""><TechStack/></section>
         <section id="projects" className=""><Projects/></section>
-        {/* <section id="work-experience" className=""><WorkExperience/></section> */}
+
         <section id="contact" className=""><ContactUs/></section>
 
       </main>
