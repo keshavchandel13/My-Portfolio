@@ -65,7 +65,7 @@ const SideBar = () => {
               { name: "Education", icon: <FaUserGraduate /> },
               { name: "Tech Stack", icon: <FaLaptopCode /> },
               { name: "Projects", icon: <FaDiagramProject /> },
-              { name: "Work Experience", icon: <FaDiagramProject /> },
+              // { name: "Work Experience", icon: <FaDiagramProject /> },
               { name: "Contact", icon: <FaEnvelope /> },
             ].map((value) => (
               <li key={value.name} className="flex flex-row w-full h-full items-center">

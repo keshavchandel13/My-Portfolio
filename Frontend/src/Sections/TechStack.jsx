@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 const TechStack = () => {
   return (
     <div>
-<div className=" bg-gradient-to-br from-gray-800 to-gray-900  text-white py-8 px-2 lg:p-12 ">
+<div className="   text-white py-8 px-2 lg:p-12 ">
       <h1 className="text-center text-5xl mb-8 font-semibold text-cyan-400 underline tracking-wider decoration-wavy decoration-yellow-500"> <Typewriter
           options={{
             strings: ["Tech Stack"],
