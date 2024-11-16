@@ -1,22 +1,60 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+
+
+const educationData = [
+  {
+    institution: "Jaypee University Of Information Technology Waknaghat, H.P  ",
+    degree: "Bachelor's in Computer Science",
+    dates: "2023 - Present",
+    image: "/public/juit.jpg", 
+  },
+  {
+    institution: "Govt Sen. Sec. School Bagwara, H.P",
+    degree: "10+2",
+    dates: "2022 - 2023",
+    image: "/public/bagwaraSchool.jpeg", 
+  },
+  {
+    institution: "DAV Public Sen. Sec. School Greyoh, H.P",
+    degree: "Matriculation",
+    dates: "2021 - 2022",
+    image: "/public/dav2.jpeg", 
+  },
+];
+
 const Education = () => {
-  
   return (
-    <div className="my-6">
-      <h1 className="text-center text-5xl ">Tech Stack</h1>
-    <div className="grid grid-cols-3 grid-rows-3 text-center">
-      <div className="border">React</div>
-      <div className="border">MongoDb</div>
-      <div className="border">Express</div>
-      <div className="border">Nodejs</div>
-      <div className="border">JavaScript</div>
-      <div className="border">Python</div>
-      <div className="border">Flask</div>
-      <div className="border">HTML5/CSS</div>
-      <div className="border">Tailwind</div>
+    <>
+      <div className="flex justify-center p-6">
+      <h1 className="text-center text-3xl   text-violet-600 font-extrabold shadow-lg shadow-fuchsia-800 ">Education</h1>
+      </div>
+    <div className="flex flex-col  pb-12 gap-6 items-center lg:flex-row justify-center">
+        {educationData.map((edu,index)=>(
+        <motion.div
+          key={index}
+          className="bg-white w-72 h-80 rounded shadow-2xl shadow-blue-300/40  hover:shadow-2xl hover:scale-105 transform transition duration-300  " 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.2 }}       
+          >
+            {/* Img */}
+          <div className="">
+            <img src={edu.image} alt={edu.institution} className="h-44 bg-contain w-72" />
+          </div>
+          {/* education data */}
+          <div className="p-3">
+            <h2 className="font-semibold mb-4">{edu.institution}</h2>
+            <p>{edu.degree}</p>
+            <p>{edu.dates}</p>
+
+          </div>
+
+        </motion.div>
+        ))};
+
     </div>
-    </div>
+    </>
   );
 };
 
