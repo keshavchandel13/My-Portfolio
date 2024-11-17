@@ -7,6 +7,14 @@ import TechStack from "./Sections/TechStack";
 import Projects from "./Sections/Projects";
 
 import ContactUs from "./Sections/ContactUs";
+const API_URL = import.meta.env.VITE_API_URL;
+
+// Example of an API call using fetch
+fetch(`${API_URL}/your-endpoint`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
 
 function App() {
   return ( 
