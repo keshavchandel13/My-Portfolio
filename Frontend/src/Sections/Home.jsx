@@ -35,7 +35,7 @@ const Home = () => {
         </button>
         <button className="flex items-center justify-center gap-2 p-2 rounded bg-orange-600 hover:bg-orange-900 transition duration-300 text-sm md:text-base shadow-lg">
           <FaDownload />
-          <a href="/public/KeshavChandelResume.pdf" download="KeshavChandelResume.pdf">
+          <a href="/KeshavChandelResume.pdf" download="KeshavChandelResume.pdf">
             Resume
           </a>
         </button>
