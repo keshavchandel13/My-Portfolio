@@ -6,7 +6,7 @@ app.use(cors({
     origin: 'https://my-portfolio-ljg7.vercel.app/' 
   }));
 app.use(express.json())
-app.get('/your-endpoint', (req, res) => {
+app.get('/test', (req, res) => {
     res.json({ message: 'Data fetched successfully!' });
     console.log("jai ho");
   });
