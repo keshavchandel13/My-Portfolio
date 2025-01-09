@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -17,6 +17,44 @@ const ContactUs = () => {
       return {...previousInput, [name]:value}
     });
   }
+
+// Function to handle email
+const handleSubmit = async (e) =>{
+  e.preventDefault();
+  try{
+    const response = await fetch("http://localhost:5000/send-email", {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json;charset=utf-8",
+      },
+      body:JSON.stringify(data),
+    }); 
+    if(response.headers.get('content-type')?.includes('aplication/json')){
+      const result = await response.json();
+      if(response.ok){
+        alert(result.message);
+      } else{
+        alert("Failed to send the message: "+ result.error);
+      }
+    } else{
+      const textResult = await response.text();
+      console.log('Text response:',textResult);
+      alert(textResult);
+    }
+  }
+  catch(error){
+    console.log("Error: "+error);
+    alert("Error in sending the message");
+  }
+};
+
+// Connection with server
+useEffect(() => {
+  fetch('http://localhost:5000/send-email')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error: ", error));
+},[]);
 
 
   return (
@@ -75,7 +113,7 @@ const ContactUs = () => {
             <h1 className="text-2xl font-semibold text-center mb-6 text-blue-700">
               SEND MESSAGE
             </h1>
-            <form action="" method="post" className="flex flex-col gap-6">
+            <form onSubmit={handleSubmit}  method="post" className="flex flex-col gap-6">
               {/* Name */}
               <input
                 type="text"
