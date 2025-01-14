@@ -24,9 +24,9 @@ const transporter = nodemailer.createTransport({
 
 app.post('/send-email',(req,res)=>{
   const {name, email,message} = req.body;
-  console.log('EMAIL:', process.env.EMAIL);
-  console.log('EMAIL:', process.env.PASSWORD);
-  console.log('EMAIL:', process.env.RECEIVER_EMAIL);
+  if(!name || !email || !message){
+    return res.status(400).json({error:'All fields are required'});
+  }
   // set up email options
   const mailOptions = {
     from: process.env.EMAIL,
