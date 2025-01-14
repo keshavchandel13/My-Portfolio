@@ -31,7 +31,7 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch("https://my-portfolio-g8ko.onrender.com/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
