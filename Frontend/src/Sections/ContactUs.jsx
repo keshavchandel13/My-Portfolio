@@ -3,7 +3,9 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
+
 const ContactUs = () => {
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -15,12 +17,14 @@ const ContactUs = () => {
 
   // Handle input changes
   const changeInput = (e) => {
+  
     const { name, value } = e.target;
     setData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
+ 
     e.preventDefault();
     setFeedback(""); // Reset feedback message
     setLoading(true); // Set loading state to true
