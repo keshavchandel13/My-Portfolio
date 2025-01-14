@@ -13,7 +13,7 @@ const educationData = [
     institution: "Govt Sen. Sec. School Bagwara, H.P",
     degree: "10+2",
     dates: "2022 - 2023",
-    image: "/billify.png", 
+    image: "/bagwaraSchool.jpeg", 
   },
   {
     institution: "DAV Public Sen. Sec. School Greyoh, H.P",
