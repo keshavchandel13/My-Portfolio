@@ -26,7 +26,7 @@ const ContactUs = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("All Env Variables in Production:", import.meta.env);
+
     setFeedback(""); // Reset feedback message
     setLoading(true); // Set loading state to true
 

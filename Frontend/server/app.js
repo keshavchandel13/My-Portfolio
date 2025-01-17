@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 const corsOptions = {
-  origin: 'https://my-portfolio-one-ochre-28.vercel.app/', 
+  origin: 'https://my-portfolio-one-ochre-28.vercel.app', 
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type',
 };
