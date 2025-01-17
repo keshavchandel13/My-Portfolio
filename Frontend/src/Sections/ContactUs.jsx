@@ -26,7 +26,7 @@ const ContactUs = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(process.env.VITE_APP_URL);
+    console.log("All Env Variables in Production:", import.meta.env);
     setFeedback(""); // Reset feedback message
     setLoading(true); // Set loading state to true
 
@@ -44,7 +44,7 @@ const ContactUs = () => {
 
     try {
       const response = await fetch(
-        `${process.env.VITE_APP_URL}/send-email`, // Using environment variable
+        `${import.meta.env.VITE_APP_URL}/send-email`, // Using environment variable
    
         {
           method: "POST",
