@@ -24,8 +24,8 @@ const ContactUs = () => {
 
   // Handle form submission
   const handleSubmit = async (e) => {
- 
     e.preventDefault();
+    console.log(process.env.REACT_APP_URL);
     setFeedback(""); // Reset feedback message
     setLoading(true); // Set loading state to true
 
