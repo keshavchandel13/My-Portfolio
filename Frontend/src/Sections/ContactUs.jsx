@@ -43,8 +43,8 @@ const ContactUs = () => {
 
     try {
       const response = await fetch(
-        // `${process.env.URL}/send-email`, // Using environment variable
-        "https://my-portfolio-g8ko.onrender.com/send-email",
+        `${process.env.REACT_APP_URL}/send-email`, // Using environment variable
+   
         {
           method: "POST",
           headers: {
