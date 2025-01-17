@@ -17,7 +17,7 @@ const ProjectData = [
       "A visually appealing and functional clone of a popular food delivery service, emphasizing intuitive user experience.",
     image: "/zomato.png",
     techStack: "HTML, CSS",
-    link: "https://zomato-clone-indol-rho.vercel.app/",
+    link: "/",
   },
   // Project 3
   {
@@ -44,7 +44,7 @@ const ProjectData = [
       "A responsive weather application that provides real-time weather updates for any location worldwide.",
     image: "/weather.png",
     techStack: "HTML5, CSS, JavaScript",
-    link: "https://jbm-wg9v-keshavchandel13s-projects.vercel.app/",
+    link: "https://weather-app-nine-eta-91.vercel.app/",
   },
   // Project 6
   {
@@ -53,7 +53,7 @@ const ProjectData = [
       "A robust billing web application designed to manage business transactions and generate invoices seamlessly.",
     image: "/billify.png",
     techStack: "Python, Flask, HTML5, CSS, MySQL",
-    link: "https://jbm-wg9v-keshavchandel13s-projects.vercel.app/",
+    link: "/",
   },
 ];
 
