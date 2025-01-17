@@ -10,6 +10,7 @@ const ContactUs = () => {
     name: "",
     email: "",
     message: "",
+
   });
 
   const [loading, setLoading] = useState(false); // State to handle loading
@@ -25,7 +26,7 @@ const ContactUs = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(process.env.REACT_APP_URL);
+    console.log(process.env.VITE_APP_URL);
     setFeedback(""); // Reset feedback message
     setLoading(true); // Set loading state to true
 
@@ -43,7 +44,7 @@ const ContactUs = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_URL}/send-email`, // Using environment variable
+        `${process.env.VITE_APP_URL}/send-email`, // Using environment variable
    
         {
           method: "POST",
