@@ -12,6 +12,9 @@ const corsOptions = {
 };
 // Enable CORS
 app.use(cors(corsOptions));
+
+// Add this to handle preflight requests
+app.options('*', cors(corsOptions)); // Handles preflight for all routes
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
