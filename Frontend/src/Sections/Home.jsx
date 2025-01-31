@@ -2,6 +2,7 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 import { FaDownload, FaBriefcase,FaGithub, FaLinkedin} from "react-icons/fa";
 import { FaSquareWhatsapp } from "react-icons/fa6";
+import { Link } from "react-scroll";
 
 const Home = () => {
   return (
@@ -29,13 +30,14 @@ const Home = () => {
 
 
       <div className="flex flex-wrap gap-4 mt-6">
-        <button className="flex items-center justify-center gap-2 p-2 rounded bg-indigo-600 hover:bg-indigo-900 transition duration-300 text-sm md:text-base shadow-lg">
+       <Link to='contact' smooth={true} duration={600}> <button  className="flex items-center justify-center gap-2 p-2 rounded bg-indigo-600 hover:bg-indigo-900 transition duration-300 text-sm md:text-base shadow-lg">
           <FaBriefcase />
           Hire Me
         </button>
+        </Link>
         <button className="flex items-center justify-center gap-2 p-2 rounded bg-orange-600 hover:bg-orange-900 transition duration-300 text-sm md:text-base shadow-lg">
           <FaDownload />
-          <a href="/KeshavChandelResume.pdf" download="KeshavChandelResume.pdf">
+          <a href="/KeshavChandelResume.pdf" download="KeshavChandelResume">
             Resume
           </a>
         </button>

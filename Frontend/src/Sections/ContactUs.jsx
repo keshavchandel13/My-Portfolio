@@ -76,7 +76,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative min-h-screen p-4">
+    <div id="contact-us" className="relative min-h-screen p-4">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/bg.jpg')" }}
