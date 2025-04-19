@@ -30,6 +30,7 @@ const Home = () => {
 
 
       <div className="flex flex-wrap gap-4 mt-6">
+ 
        <Link to='contact' smooth={true} duration={600}> <button  className="flex items-center justify-center gap-2 p-2 rounded bg-indigo-600 hover:bg-indigo-900 transition duration-300 text-sm md:text-base shadow-lg">
           <FaBriefcase />
           Hire Me

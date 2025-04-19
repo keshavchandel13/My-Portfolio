@@ -87,7 +87,7 @@ const ContactUs = () => {
         <h1 className="text-center font-extrabold text-white text-4xl mb-10 tracking-wider">
           CONTACT US
         </h1>
-        <div className="flex flex-col gap-8 items-center lg:flex-row justify-center">
+        <div className="flex flex-col gap-8 lg:gap-44 items-center lg:flex-row justify-center">
           {/* Contact Details */}
           <div className="flex flex-col items-center text-lg space-y-9">
             <div className="w-full max-w-3xl p-8 bg-white bg-opacity-30 rounded-xl shadow-2xl backdrop-blur-lg">

@@ -8,6 +8,7 @@ import TechStack from "./Sections/TechStack";
 import Projects from "./Sections/Projects";
 
 import ContactUs from "./Sections/ContactUs";
+import Certificates from "./Sections/Certificates";
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
         </section>
         <section id="projects" className="">
           <Projects />
+        </section>
+        <section id="projects" className="">
+          <Certificates/>
         </section>
         <section id="contact" className="">
           <ContactUs />
