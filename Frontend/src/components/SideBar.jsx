@@ -84,7 +84,7 @@ const SideBar = () => {
                   className="flex items-center w-full p-3"
                 >
                   <span className="text-xl">{value.icon}</span>
-                  <span className="ml-4 font-medium">{value.name}</span>
+                  <span className="ml-4 font-xl">{value.name}</span>
                 </Link>
               </li>
             ))}
