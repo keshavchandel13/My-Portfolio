@@ -1,21 +1,33 @@
 import React from "react";
 import ShinyText from "../animation/ShinnyText"
+import ProfileCard from '../animation/ProfileCard'
 const About = () => {
   return (
     <div className="flex pb-6 text-white  flex-col items-center p-2  lg:flex-row   text-sm   gap-4 lg:gap-12 sm:p-3 md:p-6  lg:p-12">
       {/* Img */}
       <div className="flex justify-center h-full w-full lg:w-10/12 bg-cover  lg:ml-0 ">
-        <img
+        {/* <img
           className="h-32 w-44 lg:w-10/12   rounded border-2 drop-shadow-2xl lg:h-72 object-cover "
           src="/keshav.jpeg"
           alt=""
+        /> */}
+        <ProfileCard
+          name="Keshav Chandel"
+          title="Web Developer"
+          handle="chandelkeshav4"
+          status="Online"
+          contactText="Contact Me"
+          avatarUrl="/keshav.jpeg"
+          showUserInfo={true}
+          enableTilt={true}
+          onContactClick={() => console.log('Contact clicked')}
         />
       </div>
       {/* About me */}
       <div className="w-80 lg:w-full h-full ">
         {" "}
         <h1 className="text-center text-xl   border-b-4 pb-4 font-semibold lg:text-5xl mb-5">
-               <ShinyText text="About Me" disabled={false} speed={3} className='custom-class' />
+          <ShinyText text="About Me" disabled={false} speed={3} className='custom-class' />
         </h1>{" "}
         <p className="mb-1 italic text-sm lg:text-lg">
           {" "}
