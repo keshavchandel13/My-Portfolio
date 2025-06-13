@@ -1,16 +1,12 @@
 import React from "react";
 import ShinyText from "../animation/ShinnyText"
 import ProfileCard from '../animation/ProfileCard'
+import ScrollReveal from "../animation/ScrollReveal";
 const About = () => {
   return (
     <div className="flex pb-6 text-white  flex-col items-center p-2  lg:flex-row   text-sm   gap-4 lg:gap-12 sm:p-3 md:p-6  lg:p-12">
       {/* Img */}
       <div className="flex justify-center h-full w-full lg:w-10/12 bg-cover  lg:ml-0 ">
-        {/* <img
-          className="h-32 w-44 lg:w-10/12   rounded border-2 drop-shadow-2xl lg:h-72 object-cover "
-          src="/keshav.jpeg"
-          alt=""
-        /> */}
         <ProfileCard
           name="Keshav Chandel"
           title="Web Developer"
@@ -30,18 +26,33 @@ const About = () => {
           <ShinyText text="About Me" disabled={false} speed={3} className='custom-class' />
         </h1>{" "}
         <p className="mb-1 italic text-sm lg:text-lg">
-          {" "}
-          I am a dedicated and passionate Computer Science Engineering student.
-          With a solid foundation in C/C++, Python,s and the MERN stack, I am
-          driven by my fascination with artificial intelligence and web
-          development.{" "}
-        </p>{" "}
-        <p className="italic text-sm lg:text-lg">
-          My journey is marked by hands-on projects and continuous learning as I
-          strive to bridge theoretical knowledge with real-world applications. I
-          thrive on challenges and am committed to developing innovative
-          solutions that enhance both user experience and technical
-          functionality.
+          <ScrollReveal
+            baseOpacity={0}
+            enableBlur={true}
+            baseRotation={10}
+            blurStrength={10}
+          >
+            I am a dedicated and passionate Computer Science Engineering student.
+            With a solid foundation in C/C++, Python and the MERN stack, I am
+            driven by my fascination with artificial intelligence and web
+            development.
+
+          </ScrollReveal>
+
+        </p>
+        <p className="italic mt-2 text-sm lg:text-lg">
+          <ScrollReveal
+            baseOpacity={0}
+            enableBlur={true}
+            baseRotation={5}
+            blurStrength={10}
+          >
+            My journey is marked by hands-on projects and continuous learning as I
+            strive to bridge theoretical knowledge with real-world applications. I
+            thrive on challenges and am committed to developing innovative
+            solutions that enhance both user experience and technical
+            functionality.
+          </ScrollReveal>
         </p>
       </div>
     </div>
