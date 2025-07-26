@@ -11,12 +11,12 @@ const About = () => {
           name="Keshav Chandel"
           title="Web Developer"
           handle="chandelkeshav4"
-          status="Online"
+          status=""
           contactText="Contact Me"
           avatarUrl="/keshav.jpeg"
           showUserInfo={true}
           enableTilt={true}
-          onContactClick={() => console.log('Contact clicked')}
+          onContactClick={() => <Link to="contact"/>}
         />
       </div>
       {/* About me */}
