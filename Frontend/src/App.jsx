@@ -32,7 +32,7 @@ function App() {
         <section id="projects" className="">
           <Projects />
         </section>
-        <section id="projects" className="">
+        <section id="certificates" className="">
           <Certificates/>
         </section>
         <section id="contact" className="">

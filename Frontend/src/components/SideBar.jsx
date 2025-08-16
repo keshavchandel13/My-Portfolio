@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { FaBars, FaDiagramProject } from "react-icons/fa6";
+import { GrCertificate } from "react-icons/gr";
 import {
   FaUserGraduate,
   FaLaptopCode,
@@ -58,7 +59,7 @@ const SideBar = () => {
             }`}
           />
           {isVisible && (
-            <h2 className="text-white font-semibold text-xl mb-2 tracking-wide">
+            <h2 className="text-white font-semibold text-xl mb-1 tracking-wide">
               Keshav Chandel
             </h2>
           )}
@@ -71,6 +72,7 @@ const SideBar = () => {
               { name: "Education", icon: <FaUserGraduate /> },
               { name: "Tech Stack", icon: <FaLaptopCode /> },
               { name: "Projects", icon: <FaDiagramProject /> },
+              { name: "Certificates", icon: <GrCertificate /> },
               { name: "Contact", icon: <FaEnvelope /> },
             ].map((value) => (
               <li
@@ -81,7 +83,7 @@ const SideBar = () => {
                   to={value.name.toLowerCase().replace(/\s/g, "-")}
                   smooth={true}
                   duration={600}
-                  className="flex items-center w-full p-3"
+                  className="flex items-center w-full p-2"
                 >
                   <span className="text-xl">{value.icon}</span>
                   <span className="ml-4 font-xl">{value.name}</span>
