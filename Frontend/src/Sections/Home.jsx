@@ -25,9 +25,9 @@ const Home = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="relative flex flex-col items-start justify-center min-h-[90vh] w-full gap-6 bg-slate-950 text-white px-8 md:px-16 overflow-hidden"
+      className=" py-16 relative flex flex-col items-start justify-center min-h-[90vh] w-full gap-6 bg-slate-950 text-white px-8  md:px-16  overflow-hidden"
     >
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full" />
+      <div className=" absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full" />
       
       <motion.div variants={itemVariants} className="z-10">
         <span className="text-indigo-400 font-mono tracking-widest uppercase text-sm mb-2 block">

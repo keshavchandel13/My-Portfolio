@@ -22,23 +22,23 @@ function App() {
           <About />
         </section>
 
-        <section id="experience" className="bg-slate-900/30">
+        <section id="experience" className="bg-slate-800/30">
           <Experience />
         </section>
 
-        <section id="projects">
+        <section id="projects" className="bg-slate-800/30">
           <Projects />
         </section>
 
-        <section id="tech-stack" className="bg-slate-900/30">
+        <section id="tech-stack" className="bg-slate-800/30">
           <TechStack />
         </section>
 
-        <section id="education">
+        <section id="education" className="bg-slate-800/30">
           <Education />
         </section>
 
-        <section id="certificates">
+        <section id="certificates" className="bg-slate-800/30">
           <Certificates />
         </section>
 
