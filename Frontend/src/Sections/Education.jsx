@@ -33,7 +33,6 @@ const educationData = [
 const Education = () => {
   return (
     <div className="py-20 px-6 min-h-screen bg-transparent">
-      {/* Section Header */}
       <div className="flex justify-center mb-16">
         <ScrollFloat
           animationDuration={1.5}
@@ -43,7 +42,6 @@ const Education = () => {
         </ScrollFloat>
       </div>
 
-      {/* Cards Container */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {educationData.map((edu, index) => (
           <motion.div
@@ -57,14 +55,12 @@ const Education = () => {
               edu.current ? "border-amber-500/50 shadow-[0_0_25px_rgba(245,158,11,0.1)]" : "border-white/10"
             } backdrop-blur-md transition-all duration-500`}
           >
-            {/* Status Badge for Recruiters */}
             {edu.current && (
               <div className="absolute top-4 right-4 z-20 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">
                 Current
               </div>
             )}
 
-            {/* Image Section with Overlay */}
             <div className="relative h-48 overflow-hidden">
               <img
                 src={edu.image}
@@ -78,7 +74,6 @@ const Education = () => {
               </div>
             </div>
 
-            {/* Content Section */}
             <div className="p-6">
               <h2 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors leading-tight mb-2">
                 {edu.institution}
@@ -97,7 +92,6 @@ const Education = () => {
               </div>
             </div>
 
-            {/* Decorative bottom line */}
             <div className={`h-1 w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r ${
               edu.current ? "from-amber-400 to-orange-600" : "from-indigo-500 to-purple-600"
             }`} />

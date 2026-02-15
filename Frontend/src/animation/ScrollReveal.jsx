@@ -98,10 +98,8 @@ const ScrollReveal = ({
     };
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
-// Inside ScrollReveal.jsx - Update the return statement
 return (
   <div ref={containerRef} className={`my-5 ${containerClassName}`}>
-    {/* Removed the logic that was forcing clamp(1.2rem, 0.7vw, 0.2rem) which is contradictory */}
     <div className={`leading-[1.6] font-medium ${textClassName}`}>
       {splitText.map((word, index) => (
         <span key={index} className="word inline-block mr-1">

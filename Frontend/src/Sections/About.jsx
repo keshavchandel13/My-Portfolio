@@ -24,7 +24,6 @@ const About = () => {
   return (
     <div className="flex min-h-screen text-white flex-col items-center justify-center p-6 lg:flex-row gap-10 lg:gap-16">
       
-      {/* Profile Card Section */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -44,7 +43,6 @@ const About = () => {
         />
       </motion.div>
 
-      {/* Content Section */}
       <div className="w-full lg:w-1/2 space-y-6">
         <div className="text-left">
           <h1 className="text-4xl lg:text-6xl font-bold mb-4">
@@ -81,7 +79,6 @@ const About = () => {
           </ScrollReveal>
         </div>
 
-        {/* Highlight Grid for Recruiters/Clients */}
         <div className="grid grid-cols-2 gap-4 mt-8">
           {highlights.map((item, idx) => (
             <motion.div 

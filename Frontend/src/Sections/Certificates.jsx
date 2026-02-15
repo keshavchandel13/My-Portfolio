@@ -40,7 +40,6 @@ const certificateData = [
 const Certificates = () => {
   return (
     <div className="text-white min-h-screen py-20 px-6 lg:px-12">
-      {/* Header */}
       <div className="flex flex-col items-center mb-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -57,7 +56,6 @@ const Certificates = () => {
         </p>
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {certificateData.map((cert, index) => (
           <motion.div
@@ -69,7 +67,6 @@ const Certificates = () => {
             whileHover={{ y: -8 }}
             className="group relative flex flex-col h-full bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-amber-400/50 transition-all duration-300 shadow-xl"
           >
-            {/* Image Container */}
             <div className="relative h-44 overflow-hidden">
               <img
                 src={cert.image}
@@ -82,7 +79,6 @@ const Certificates = () => {
               </span>
             </div>
 
-            {/* Content */}
             <div className="p-5 flex flex-col flex-grow">
               <div className="flex items-start justify-between gap-2 mb-2">
                 <h2 className="text-lg font-bold leading-tight group-hover:text-amber-400 transition-colors">

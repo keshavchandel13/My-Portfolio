@@ -10,11 +10,9 @@ const corsOptions = {
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type',
 };
-// Enable CORS
 app.use(cors(corsOptions));
 
-// Add this to handle preflight requests
-app.options('*', cors(corsOptions)); // Handles preflight for all routes
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -30,7 +28,6 @@ app.post('/send-email',(req,res)=>{
   if(!name || !email || !message){
     return res.status(400).json({error:'All fields are required'});
   }
-  // set up email options
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.RECEIVER_EMAIL,
@@ -41,13 +38,12 @@ app.post('/send-email',(req,res)=>{
       Message : ${message}
     `,
   };
-  // Send email using transporter
   transporter.sendMail(mailOptions,(error,info)=>{
     if(error){
       console.log('Error sending email:',error);
       return res.status(500).json({error:error.toString()});
     }
-    //Success message
+    
     res.status(200).json({
       message: 'Email sent successfully'
     });

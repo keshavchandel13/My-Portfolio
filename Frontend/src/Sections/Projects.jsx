@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 const ProjectData = [
-  // Project 1
   {
     title: "Photography Business Portfolio",
     description:
@@ -11,7 +10,7 @@ const ProjectData = [
     techStack: "Node.js, React.js",
     link: "https://jbm-wg9v-keshavchandel13s-projects.vercel.app/",
   },
-  // Project 2
+  
   {
     title: "Zomato Clone: Food Delivery Platform",
     description:
@@ -20,7 +19,7 @@ const ProjectData = [
     techStack: "HTML, CSS",
     link: "/",
   },
-  // Project 3
+  
   {
     title: "Task Management Web App",
     description:
@@ -29,7 +28,7 @@ const ProjectData = [
     techStack: "HTML5, CSS, JavaScript",
     link: "https://project-5-to-do-list.vercel.app/",
   },
-  // Project 4
+  
   {
     title: "Text-to-Speech Converter Tool",
     description:
@@ -38,7 +37,7 @@ const ProjectData = [
     techStack: "HTML5, CSS, JavaScript",
     link: "https://project-01-text-to-speech.vercel.app/",
   },
-  // Project 5
+  
   {
     title: "Weather Forecast Web App",
     description:
@@ -47,7 +46,7 @@ const ProjectData = [
     techStack: "HTML5, CSS, JavaScript",
     link: "https://weather-app-nine-eta-91.vercel.app/",
   },
-  // Project 6
+  
   {
     title: "Billy-fy: Business Billing System",
     description:
@@ -78,24 +77,23 @@ const Projects = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 hover:border-indigo-500/50 transition-all duration-500 shadow-2xl"
           >
-            {/* Project Image */}
+            
             <div className="relative h-64 overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              {/* Featured Badge */}
+              
               {project.featured && (
                 <div className="absolute top-4 left-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
                   Top Project
                 </div>
               )}
-              {/* Overlay on Hover */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent opacity-80" />
             </div>
-
-            {/* Content Section */}
+            
             <div className="p-6 relative">
               <div className="flex flex-wrap gap-2 mb-4">
                 {Array.isArray(project.techStack) ? project.techStack.map((tech, i) => (
@@ -112,7 +110,7 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Action Buttons */}
+              
               <div className="flex items-center gap-4">
                 <a
                   href={project.link}

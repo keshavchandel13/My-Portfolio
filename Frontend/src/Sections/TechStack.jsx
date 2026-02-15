@@ -48,13 +48,11 @@ const TechStack = () => {
           sentence="Tech Stack"
           manualMode={false}
           blurAmount={8}
-          borderColor="#fbbf24" // Amber to match your theme
+          borderColor="#fbbf24"
           glowColor="rgba(251, 191, 36, 0.4)"
           animationDuration={0.8}
         />
-        <p className="text-center text-gray-400 mt-4 font-mono">
-          // Proficient in modern web ecosystems & scalable logic
-        </p>
+        
       </div>
 
       <div className="max-w-7xl mx-auto space-y-12">
@@ -90,7 +88,7 @@ const TechStack = () => {
                     {tech.name}
                   </span>
                   
-                  {/* Subtle hover glow background */}
+                  
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl"
                     style={{ backgroundColor: tech.color }}

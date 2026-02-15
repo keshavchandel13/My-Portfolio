@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaDownload } from "react-icons/fa";
-import { FaDiagramProject, FaBriefcase, FaUserGraduate, FaLaptopCode, FaEnvelope, FaHome } from "react-icons/fa6";
+import { FaDiagramProject, FaBriefcase, FaUserGraduate, FaLaptopCode, FaEnvelope } from "react-icons/fa6";
 import { GrCertificate } from "react-icons/gr";
 import { IoPerson } from "react-icons/io5";
+import { FaHome } from "react-icons/fa";
 
 const SideBar = () => {
   const [isVisible, setVisibility] = useState(true);
@@ -19,7 +20,6 @@ const SideBar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Menu items re-ordered to match the "Impact" flow
   const menuItems = [
     { name: "Home", icon: <FaHome />, to: "home" },
     { name: "About", icon: <IoPerson />, to: "about" },
@@ -81,10 +81,9 @@ const SideBar = () => {
               ))}
             </ul>
 
-            {/* Recruiter Shortcut: Quick Resume Access in Sidebar */}
             <div className="px-4 mt-4">
               <a 
-                href="/Keshav-Chandel-Resume.pdf" 
+                href="/Keshav Chandel - Resume.pdf" 
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white text-xs font-bold hover:bg-amber-400 hover:text-black transition-all"
               >
                 <FaDownload /> DOWNLOAD CV

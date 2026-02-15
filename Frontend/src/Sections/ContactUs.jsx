@@ -65,7 +65,6 @@ const ContactUs = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Contact Info */}
           <div className="space-y-8">
             <h3 className="text-2xl font-bold text-white mb-6">Let's build something great.</h3>
             
@@ -89,7 +88,6 @@ const ContactUs = () => {
               ))}
             </div>
 
-            {/* Quick Socials for Recruiters */}
             <div className="pt-8">
               <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mb-4">Social Profiles</p>
               <div className="flex gap-4">
@@ -103,7 +101,6 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Right: Glass Form */}
           <motion.div 
             className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl"
           >

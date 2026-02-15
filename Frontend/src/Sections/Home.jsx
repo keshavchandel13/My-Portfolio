@@ -6,7 +6,6 @@ import { FaSquareWhatsapp } from "react-icons/fa6";
 import { Link } from "react-scroll";
 
 const Home = () => {
-  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -28,7 +27,6 @@ const Home = () => {
       variants={containerVariants}
       className="relative flex flex-col items-start justify-center min-h-[90vh] w-full gap-6 bg-slate-950 text-white px-8 md:px-16 overflow-hidden"
     >
-      {/* Background Subtle Glow for "Client" Premium Feel */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full" />
       
       <motion.div variants={itemVariants} className="z-10">
@@ -40,7 +38,6 @@ const Home = () => {
         </h1>
       </motion.div>
 
-      {/* Typewriter Effect - Enhanced font-weight for Recruiters */}
       <motion.div variants={itemVariants} className="h-12 md:h-16 z-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-300">
           <Typewriter
@@ -64,7 +61,6 @@ const Home = () => {
         I bridge the gap between complex backend logic (Node/Python) and sleek, user-centric interfaces.
       </motion.p>
 
-      {/* Primary CTAs */}
       <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-4 z-10">
         <Link to='contact' smooth={true} duration={600}>
           <button className="group flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.4)]">
@@ -83,7 +79,6 @@ const Home = () => {
         </a>
       </motion.div>
 
-      {/* Social Sidebar/Line for Recruiters to find you quickly */}
       <motion.div variants={itemVariants} className="flex items-center gap-6 mt-8 z-10">
         <div className="h-[1px] w-12 bg-gray-600"></div>
         <a href="https://github.com/keshavchandel13" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white text-2xl transition-colors">

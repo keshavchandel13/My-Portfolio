@@ -28,7 +28,6 @@ const experiences = [
 export default function Experience() {
   return (
     <div className="py-24 px-6 lg:px-20 min-h-screen text-white relative">
-      {/* Background decoration */}
       <div className="absolute top-56 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-500/50 via-gray-800 to-transparent hidden md:block" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -51,14 +50,12 @@ export default function Experience() {
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Timeline Dot */}
               <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 top-0 z-20">
                 <div className={`w-5 h-5 rounded-full border-4 border-slate-900 shadow-xl ${
                   exp.isLatest ? "bg-amber-400 animate-pulse" : "bg-indigo-500"
                 }`} />
               </div>
 
-              {/* Content Card */}
               <div className="w-full md:w-[45%] group">
                 <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:border-indigo-500/50 transition-all duration-500 shadow-2xl">
                   <div className="flex justify-between items-start mb-4">
