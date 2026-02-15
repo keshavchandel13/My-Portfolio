@@ -98,11 +98,19 @@ const ScrollReveal = ({
     };
   }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
-  return (
-    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={`text-[clamp(1.2rem,0.7vw,0.2rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
-    </h2>
-  );
+// Inside ScrollReveal.jsx - Update the return statement
+return (
+  <div ref={containerRef} className={`my-5 ${containerClassName}`}>
+    {/* Removed the logic that was forcing clamp(1.2rem, 0.7vw, 0.2rem) which is contradictory */}
+    <div className={`leading-[1.6] font-medium ${textClassName}`}>
+      {splitText.map((word, index) => (
+        <span key={index} className="word inline-block mr-1">
+          {word}
+        </span>
+      ))}
+    </div>
+  </div>
+);
 };
 
 export default ScrollReveal;

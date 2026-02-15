@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 const ProjectData = [
   // Project 1
   {
@@ -59,35 +60,78 @@ const ProjectData = [
 
 const Projects = () => {
   return (
-    <div className="text-white min-h-screen p-4 pb-8">
-      {/* headind */}
-      <h1 className="text-center font-extrabold text-4xl mb-6">PROJECTS</h1>
-      {/* projects box */}
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+    <div className="text-white min-h-screen py-20 px-6 lg:px-12">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+          Featured <span className="text-amber-400">Works</span>
+        </h1>
+        <div className="h-1.5 w-24 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {ProjectData.map((project, index) => (
           <motion.div
             key={index}
-            className="border-2 rounded-md relative overflow-hidden shadow-xl hover:shadow-2xl transform transition-all duration-500 lg:border"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 hover:border-indigo-500/50 transition-all duration-500 shadow-2xl"
           >
-            <img
-              src={project.image}
-              alt=""
-              className="object-cover w-full h-64 group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute p-4 bottom-0  bg-black bg-opacity-80 transition-transform duration-500 hover:translate-y-0 translate-y-20 ">
-              <h1 className="font-bold text-2xl ">{project.title}</h1>
-              <h2 className="text-sm mt-2">{project.techStack}</h2>
-              <p className="text-sm mt-2 ">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                className="text-blue-500 underline"
-              >
-                View Project
-              </a>
+            {/* Project Image */}
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              {/* Featured Badge */}
+              {project.featured && (
+                <div className="absolute top-4 left-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                  Top Project
+                </div>
+              )}
+              {/* Overlay on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent opacity-80" />
+            </div>
+
+            {/* Content Section */}
+            <div className="p-6 relative">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {Array.isArray(project.techStack) ? project.techStack.map((tech, i) => (
+                  <span key={i} className="text-[10px] font-mono text-indigo-400 bg-indigo-400/10 px-2 py-0.5 rounded-md border border-indigo-400/20">
+                    {tech}
+                  </span>
+                )) : <span className="text-[10px] font-mono text-indigo-400">{project.techStack}</span>}
+              </div>
+
+              <h3 className="text-2xl font-bold mb-2 group-hover:text-amber-400 transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-2">
+                {project.description}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-amber-400 transition-colors"
+                >
+                  <FaExternalLinkAlt size={12} /> Live Demo
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  title="View Source Code"
+                >
+                  <FaGithub size={18} />
+                </a>
+              </div>
             </div>
           </motion.div>
         ))}

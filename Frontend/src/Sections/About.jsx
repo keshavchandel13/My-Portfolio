@@ -1,59 +1,99 @@
 import React from "react";
-import ShinyText from "../animation/ShinnyText"
-import ProfileCard from '../animation/ProfileCard'
+import { scroller } from "react-scroll";
+import ShinyText from "../animation/ShinnyText";
+import ProfileCard from '../animation/ProfileCard';
 import ScrollReveal from "../animation/ScrollReveal";
+import { motion } from "framer-motion";
+
 const About = () => {
+  const scrollToContact = () => {
+    scroller.scrollTo("contact", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  };
+
+  const highlights = [
+    { label: "Education", value: "B.Tech CSE" },
+    { label: "Experience", value: "Full Stack Dev" },
+    { label: "Focus", value: "AI & Web" },
+    { label: "Location", value: "India" },
+  ];
+
   return (
-    <div className="flex pb-6 text-white  flex-col items-center p-2  lg:flex-row   text-sm   gap-4 lg:gap-12 sm:p-3 md:p-6  lg:p-12">
-      {/* Img */}
-      <div className="flex justify-center h-full w-full lg:w-10/12 bg-cover  lg:ml-0 ">
+    <div className="flex min-h-screen text-white flex-col items-center justify-center p-6 lg:flex-row gap-10 lg:gap-16">
+      
+      {/* Profile Card Section */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="flex justify-center w-full lg:w-1/2"
+      >
         <ProfileCard
           name="Keshav Chandel"
-          title="Web Developer"
-          handle="chandelkeshav4"
-          status=""
-          contactText="Contact Me"
+          title="Full Stack Developer"
+          handle="keshavchandel13"
+          status="Open for Roles"
+          contactText="Get in Touch"
           avatarUrl="/keshav.jpeg"
           showUserInfo={true}
           enableTilt={true}
-          onContactClick={() => <Link to="contact"/>}
+          onContactClick={scrollToContact}
         />
-      </div>
-      {/* About me */}
-      <div className="w-80 lg:w-full h-full ">
-        {" "}
-        <h1 className="text-center text-xl   border-b-4 pb-4 font-semibold lg:text-5xl mb-5">
-          <ShinyText text="About Me" disabled={false} speed={3} className='custom-class' />
-        </h1>{" "}
-        <p className="mb-1 italic text-sm lg:text-lg">
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={10}
-            blurStrength={10}
-          >
-            I am a dedicated and passionate Computer Science Engineering student.
-            With a solid foundation in C/C++, Python and the MERN stack, I am
-            driven by my fascination with artificial intelligence and web
-            development.
+      </motion.div>
 
+      {/* Content Section */}
+      <div className="w-full lg:w-1/2 space-y-6">
+        <div className="text-left">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-4">
+            <ShinyText text="About Me" speed={3} />
+          </h1>
+          <div className="h-1 w-20 bg-amber-400 rounded-full mb-8"></div>
+        </div>
+
+        <div className="space-y-4 text-gray-300">
+          <ScrollReveal
+            baseOpacity={0.2}
+            enableBlur={true}
+            baseRotation={0}
+            blurStrength={8}
+            textClassName="text-lg lg:text-xl leading-relaxed italic"
+          >
+            I am a dedicated Computer Science Engineering student at JP University. 
+            With a solid foundation in MERN stack and Python, I am driven by the 
+            fascinated by the intersection of Artificial Intelligence and modern 
+            Web Architectures.
           </ScrollReveal>
 
-        </p>
-        <p className="italic mt-2 text-sm lg:text-lg">
           <ScrollReveal
-            baseOpacity={0}
+            baseOpacity={0.2}
             enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
+            baseRotation={0}
+            blurStrength={8}
+            textClassName="text-lg lg:text-xl leading-relaxed italic"
           >
-            My journey is marked by hands-on projects and continuous learning as I
-            strive to bridge theoretical knowledge with real-world applications. I
-            thrive on challenges and am committed to developing innovative
-            solutions that enhance both user experience and technical
-            functionality.
+            My journey is defined by building hands-on solutions that bridge the gap 
+            between complex backend logic and seamless user experiences. I thrive on 
+            technical challenges and am committed to engineering innovative web 
+            solutions.
           </ScrollReveal>
-        </p>
+        </div>
+
+        {/* Highlight Grid for Recruiters/Clients */}
+        <div className="grid grid-cols-2 gap-4 mt-8">
+          {highlights.map((item, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ y: -5 }}
+              className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+            >
+              <p className="text-amber-400 text-xs uppercase tracking-widest font-bold">{item.label}</p>
+              <p className="text-white font-medium text-lg">{item.value}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

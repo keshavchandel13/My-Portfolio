@@ -1,57 +1,102 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { FaDownload, FaBriefcase,FaGithub, FaLinkedin} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaDownload, FaBriefcase, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { Link } from "react-scroll";
 
 const Home = () => {
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
-    <div className="flex flex-col items-start w-full gap-6 bg-gradient-to-r from-black via-gray-900 to-gray-800 text-white px-8 py-16 md:py-24 lg:py-32">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="relative flex flex-col items-start justify-center min-h-[90vh] w-full gap-6 bg-slate-950 text-white px-8 md:px-16 overflow-hidden"
+    >
+      {/* Background Subtle Glow for "Client" Premium Feel */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full" />
+      
+      <motion.div variants={itemVariants} className="z-10">
+        <span className="text-indigo-400 font-mono tracking-widest uppercase text-sm mb-2 block">
+          Available for Opportunities
+        </span>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight">
+          Hi, I'm <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Keshav Chandel</span>
+        </h1>
+      </motion.div>
 
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
-        Hi, I'm <span className="text-amber-400">Keshav Chandel</span>
-      </h1>
+      {/* Typewriter Effect - Enhanced font-weight for Recruiters */}
+      <motion.div variants={itemVariants} className="h-12 md:h-16 z-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-300">
+          <Typewriter
+            options={{
+              strings: [
+                "Full Stack Developer.",
+                "MERN Specialist.",
+                "AI/ML Enthusiast.",
+                "Solution Architect."
+              ],
+              autoStart: true,
+              loop: true,
+              deleteSpeed: 50,
+            }}
+          />
+        </h2>
+      </motion.div>
 
-      {/* Typewriter Effect */}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-amber-400">
-        <Typewriter
-          options={{
-            strings: ["Full Stack Developer!", "MERN Stack Enthusiast!", "Web Innovator!"],
-            autoStart: true,
-            loop: true,
-          }}
-        />
-      </h2>
+      <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed z-10">
+        Engineering student at <span className="text-white border-b border-amber-400">JP University</span>. 
+        I bridge the gap between complex backend logic (Node/Python) and sleek, user-centric interfaces.
+      </motion.p>
 
-      {/*  Paragraph */}
-      <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mt-4 max-w-3xl">
-        Passionate about creating interactive web applications and leveraging modern technologies to deliver high-quality user experiences.
-      </p>
-
-
-      <div className="flex flex-wrap gap-4 mt-6">
- 
-       <Link to='contact' smooth={true} duration={600}> <button  className="flex items-center justify-center gap-2 p-2 rounded bg-indigo-600 hover:bg-indigo-900 transition duration-300 text-sm md:text-base shadow-lg">
-          <FaBriefcase />
-          Hire Me
-        </button>
+      {/* Primary CTAs */}
+      <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-4 z-10">
+        <Link to='contact' smooth={true} duration={600}>
+          <button className="group flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.4)]">
+            <FaBriefcase className="group-hover:scale-110 transition-transform" />
+            <span className="font-semibold">Hire Me</span>
+          </button>
         </Link>
-        <button className="flex items-center justify-center gap-2 p-2 rounded bg-orange-600 hover:bg-orange-900 transition duration-300 text-sm md:text-base shadow-lg">
-          <FaDownload />
-          <a href="/Keshav Chandel - Resume.pdf" download="KeshavChandelResume">
-            Resume
-          </a>
-        </button>
-      </div>
-      {/* links */}
-      <div className="flex text-2xl gap-4 px-12">
-        <a href="https://github.com/keshavchandel13" className="text-white hover:text-current" target="blank"><FaGithub/></a>
-        <a href="https://www.linkedin.com/in/keshav-chandel-9ba2a7186/?originalSubdomain=in" className="text-blue-800 hover:text-blue-900" target="blank"><FaLinkedin/></a>
-        <a href="" className="text-green-500 hover:text-green-800" target="blank"><FaSquareWhatsapp/></a>
         
+        <a 
+          href="/Keshav Chandel - Resume.pdf" 
+          download="KeshavChandelResume"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gray-600 hover:border-amber-400 hover:text-amber-400 transition-all duration-300"
+        >
+          <FaDownload />
+          <span className="font-semibold">Download CV</span>
+        </a>
+      </motion.div>
 
-      </div>
-    </div>
+      {/* Social Sidebar/Line for Recruiters to find you quickly */}
+      <motion.div variants={itemVariants} className="flex items-center gap-6 mt-8 z-10">
+        <div className="h-[1px] w-12 bg-gray-600"></div>
+        <a href="https://github.com/keshavchandel13" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white text-2xl transition-colors">
+          <FaGithub />
+        </a>
+        <a href="https://www.linkedin.com/in/keshav-chandel-9ba2a7186/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0077b5] text-2xl transition-colors">
+          <FaLinkedin />
+        </a>
+        <a href="https://wa.me/yournumber" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#25D366] text-2xl transition-colors">
+          <FaSquareWhatsapp />
+        </a>
+      </motion.div>
+    </motion.div>
   );
 };
 

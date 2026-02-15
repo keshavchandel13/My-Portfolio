@@ -1,171 +1,172 @@
 import React, { useState } from "react";
-import { FaLocationDot } from "react-icons/fa6";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaLocationDot,  FaLinkedin, FaGithub } from "react-icons/fa6";
+import { MdEmail, MdSend, MdCheckCircle, MdError } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-
 
 const ContactUs = () => {
+  const [data, setData] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" }); 
 
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    message: "",
-
-  });
-
-  const [loading, setLoading] = useState(false); // State to handle loading
-  const [feedback, setFeedback] = useState(""); // State for feedback message
-
-  // Handle input changes
   const changeInput = (e) => {
-  
     const { name, value } = e.target;
-    setData((prevData) => ({ ...prevData, [name]: value }));
+    setData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ type: "", message: "" });
+    setLoading(true);
 
-    setFeedback(""); // Reset feedback message
-    setLoading(true); // Set loading state to true
-
-    // Validate inputs
     if (!data.name || !data.email || !data.message) {
-      setFeedback("All fields are required.");
-      setLoading(false);
-      return;
-    }
-    if (!/\S+@\S+\.\S+/.test(data.email)) {
-      setFeedback("Invalid email format.");
+      setStatus({ type: "error", message: "Please fill all fields." });
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_APP_URL}/send-email`, // Using environment variable
-   
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_APP_URL}/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-      if (response.headers.get("content-type")?.includes("application/json")) {
-        const result = await response.json();
-        if (response.ok) {
-          setFeedback("Message sent successfully!");
-          setData({ name: "", email: "", message: "" }); // Reset form
-        } else {
-          setFeedback(result.error || "Failed to send the message.");
-        }
+      if (response.ok) {
+        setStatus({ type: "success", message: "Message sent! I'll get back to you soon." });
+        setData({ name: "", email: "", message: "" });
       } else {
-        const textResult = await response.text();
-        setFeedback(textResult || "Failed to send the message.");
+        throw new Error("Failed to send");
       }
     } catch (error) {
-      console.error("Error:", error);
-      setFeedback("An error occurred. Please try again.");
+      setStatus({ type: "error", message: "Something went wrong. Try LinkedIn?" });
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
   return (
-    <div id="contact-us" className="relative min-h-screen p-4">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/bg.jpg')" }}
-      ></div>
-      <div className="absolute inset-0 bg-blue-900 opacity-60"></div>
+    <div className="relative min-h-screen py-20 px-6 lg:px-12 flex flex-col items-center justify-center overflow-hidden">
+      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-600/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 -left-20 w-72 h-72 bg-amber-400/5 blur-[100px] rounded-full" />
 
-      <div className="relative z-10 text-white py-10 px-6">
-        <h1 className="text-center font-extrabold text-white text-4xl mb-10 tracking-wider">
-          CONTACT US
-        </h1>
-        <div className="flex flex-col gap-8 lg:gap-44 items-center lg:flex-row justify-center">
-          {/* Contact Details */}
-          <div className="flex flex-col items-center text-lg space-y-9">
-            <div className="w-full max-w-3xl p-8 bg-white bg-opacity-30 rounded-xl shadow-2xl backdrop-blur-lg">
-              {/* Address */}
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white mr-4">
-                  <FaLocationDot size={24} />
-                </div>
-                <div>
-                  <h2 className="text-blue-300 font-semibold">Address</h2>
-                  <p className="text-white">Hamirpur, H.P</p>
-                </div>
-              </div>
-              {/* Phone */}
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white mr-4">
-                  <FaPhoneAlt size={20} />
-                </div>
-                <div>
-                  <h2 className="text-blue-300 font-semibold">Phone</h2>
-                  <p className="text-white">+91-8278779865</p>
-                </div>
-              </div>
-              {/* Email */}
-              <div className="flex items-center">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white mr-4">
-                  <MdEmail size={24} />
-                </div>
-                <div>
-                  <h2 className="text-blue-300 font-semibold">Email</h2>
-                  <p className="text-white">chandelkeshav4@gmail.com</p>
-                </div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="relative z-10 w-full max-w-6xl"
+      >
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-white">
+            Get In <span className="text-amber-400">Touch</span>
+          </h1>
+          <p className="text-gray-400 mt-4 font-mono uppercase tracking-widest text-sm">
+            Available for Internships & Freelance Projects
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left: Contact Info */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-white mb-6">Let's build something great.</h3>
+            
+            <div className="space-y-6">
+              {[
+                { icon: <FaLocationDot />, label: "Location", val: "Hamirpur, H.P, India", color: "text-red-400" },
+                { icon: <FaPhoneAlt />, label: "Phone", val: "+91-8278779865", color: "text-green-400" },
+                { icon: <MdEmail />, label: "Email", val: "chandelkeshav4@gmail.com", color: "text-blue-400" },
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-5 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md"
+                >
+                  <div className={`text-xl ${item.color}`}>{item.icon}</div>
+                  <div>
+                    <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">{item.label}</p>
+                    <p className="text-white font-medium">{item.val}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Quick Socials for Recruiters */}
+            <div className="pt-8">
+              <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mb-4">Social Profiles</p>
+              <div className="flex gap-4">
+                <a href="https://linkedin.com/in/keshav-chandel-9ba2a7186" className="p-4 rounded-xl bg-indigo-600/20 border border-indigo-600/30 text-indigo-400 hover:bg-indigo-600 hover:text-white transition-all">
+                  <FaLinkedin size={24} />
+                </a>
+                <a href="https://github.com/keshavchandel13" className="p-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black transition-all">
+                  <FaGithub size={24} />
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Form Section */}
-          <div className="bg-white text-black p-6 w-96 rounded-xl shadow-lg">
-            <h1 className="text-2xl font-semibold text-center mb-6 text-blue-700">
-              SEND MESSAGE
-            </h1>
-            <form onSubmit={handleSubmit} method="post" className="flex flex-col gap-6">
-              <input
-                type="text"
-                placeholder="Name"
-                value={data.name}
-                onChange={changeInput}
-                name="name"
-                className="p-4 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-200"
-              />
-              <input
-                type="text"
-                placeholder="Email"
-                value={data.email}
-                onChange={changeInput}
-                name="email"
-                className="p-4 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-200"
-              />
-              <textarea
-                name="message"
-                placeholder="Type your message"
-                value={data.message}
-                onChange={changeInput}
-                className="p-4 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-200 resize-none"
-                rows="4"
-              ></textarea>
+          {/* Right: Glass Form */}
+          <motion.div 
+            className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl"
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-gray-400 uppercase ml-1">Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={data.name}
+                  onChange={changeInput}
+                  className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-400 focus:outline-none transition-all"
+                  placeholder="Your Name"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-gray-400 uppercase ml-1">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={data.email}
+                  onChange={changeInput}
+                  className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-400 focus:outline-none transition-all"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-gray-400 uppercase ml-1">Message</label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  value={data.message}
+                  onChange={changeInput}
+                  className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-400 focus:outline-none transition-all resize-none"
+                  placeholder="Project details or inquiry..."
+                ></textarea>
+              </div>
+
               <button
-                type="submit"
-                className="bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-300 font-medium"
                 disabled={loading}
+                className="w-full py-4 rounded-xl bg-amber-400 text-black font-black uppercase tracking-widest hover:bg-amber-300 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                {loading ? "Sending..." : "Send"}
+                {loading ? "Transmitting..." : <>Send Message <MdSend /></>}
               </button>
             </form>
-            {feedback && <p className="mt-4 text-center text-red-600">{feedback}</p>}
-          </div>
+
+            <AnimatePresence>
+              {status.message && (
+                <motion.div 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className={`mt-6 p-4 rounded-xl flex items-center gap-3 ${status.type === 'success' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}
+                >
+                  {status.type === 'success' ? <MdCheckCircle /> : <MdError />}
+                  <span className="text-sm font-bold">{status.message}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

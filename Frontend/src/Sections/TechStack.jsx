@@ -1,50 +1,103 @@
 import React from "react";
+import { motion } from "framer-motion";
 import TrueFocus from "../animation/TrueFocus";
 import {
   FaReact, FaNodeJs, FaPython, FaHtml5, FaCss3Alt,
-  FaGithub, FaBootstrap
+  FaGithub, FaBootstrap, FaDatabase
 } from "react-icons/fa";
 import {
-  SiMongodb, SiExpress, SiJavascript, SiTailwindcss, SiFlask
+  SiMongodb, SiExpress, SiJavascript, SiTailwindcss, SiFlask, SiFramer
 } from "react-icons/si";
 
-const techs = [
-  { skill: "React", icon: <FaReact color="#61DBFB" size={32} />, style: "" },
-  { skill: "MongoDB", icon: <SiMongodb color="#47A248" size={32} />, style: "" },
-  { skill: "Express", icon: <SiExpress color="#fff" size={32} />, style: "bg-black" },
-  { skill: "Node.js", icon: <FaNodeJs color="#3C873A" size={32} />, style: "" },
-  { skill: "JavaScript", icon: <SiJavascript color="#F7DF1E" size={32} />, style: "" },
-  { skill: "Python", icon: <FaPython color="#3776AB" size={32} />, style: "" },
-  { skill: "Flask", icon: <SiFlask color="#000" size={32} />, style: "" },
-  { skill: "HTML5", icon: <FaHtml5 color="#E34F26" size={32} />, style: "" },
-  { skill: "CSS3", icon: <FaCss3Alt color="#1572B6" size={32} />, style: "" },
-  { skill: "Tailwind", icon: <SiTailwindcss color="#38BDF8" size={32} />, style: "" },
-  { skill: "Github", icon: <FaGithub size={32} />, style: "" },
-  { skill: "Bootstrap", icon: <FaBootstrap color="#563d7c" size={32} />, style: "" },
+const techCategories = [
+  {
+    title: "Frontend Development",
+    skills: [
+      { name: "React", icon: <FaReact />, color: "#61DBFB" },
+      { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
+      { name: "Tailwind", icon: <SiTailwindcss />, color: "#38BDF8" },
+      { name: "Bootstrap", icon: <FaBootstrap />, color: "#7952B3" },
+      { name: "HTML5", icon: <FaHtml5 />, color: "#E34F26" },
+      { name: "CSS3", icon: <FaCss3Alt />, color: "#1572B6" },
+    ]
+  },
+  {
+    title: "Backend & Database",
+    skills: [
+      { name: "Node.js", icon: <FaNodeJs />, color: "#3C873A" },
+      { name: "Express", icon: <SiExpress />, color: "#FFFFFF" },
+      { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
+      { name: "Flask", icon: <SiFlask />, color: "#808080" },
+    ]
+  },
+  {
+    title: "Programming & Tools",
+    skills: [
+      { name: "Python", icon: <FaPython />, color: "#3776AB" },
+      { name: "GitHub", icon: <FaGithub />, color: "#FFFFFF" },
+      { name: "Animations", icon: <SiFramer />, color: "#E91E63" },
+    ]
+  }
 ];
 
 const TechStack = () => {
   return (
-    <div className="text-white py-6 px-3 lg:px-8">
-      <h1 className="text-center text-4xl mb-12 font-semibold">
+    <div className="text-white py-16 px-6 lg:px-12 min-h-screen">
+      <div className="mb-16">
         <TrueFocus
           sentence="Tech Stack"
           manualMode={false}
-          blurAmount={4}
-          borderColor="cyan"
-          animationDuration={1}
-          pauseBetweenAnimations={1}
+          blurAmount={8}
+          borderColor="#fbbf24" // Amber to match your theme
+          glowColor="rgba(251, 191, 36, 0.4)"
+          animationDuration={0.8}
         />
-      </h1>
+        <p className="text-center text-gray-400 mt-4 font-mono">
+          // Proficient in modern web ecosystems & scalable logic
+        </p>
+      </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-4 font-medium font-serif text-sm">
-        {techs.map((tech, index) => (
-          <div
-            key={index}
-            className={`border p-3 rounded-lg shadow-md shadow-blue-500/20 text-center bg-gray-800 hover:bg-blue-500 hover:scale-105 transition-all duration-300 ease-in-out lg:p-5 ${tech.style}`}
-          >
-            <div className="flex justify-center mb-1">{tech.icon}</div>
-            <div>{tech.skill}</div>
+      <div className="max-w-7xl mx-auto space-y-12">
+        {techCategories.map((cat, catIdx) => (
+          <div key={catIdx}>
+            <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
+              <span className="h-[1px] w-8 bg-amber-400"></span>
+              {cat.title}
+            </h2>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {cat.skills.map((tech, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    backgroundColor: "rgba(255,255,255,0.05)",
+                    boxShadow: `0 0 20px ${tech.color}33` 
+                  }}
+                  className="relative group p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-4 transition-all duration-300"
+                >
+                  <div 
+                    className="text-4xl transition-transform duration-300 group-hover:scale-110"
+                    style={{ color: tech.color }}
+                  >
+                    {tech.icon}
+                  </div>
+                  <span className="text-xs font-semibold tracking-wider uppercase text-gray-400 group-hover:text-white transition-colors">
+                    {tech.name}
+                  </span>
+                  
+                  {/* Subtle hover glow background */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl"
+                    style={{ backgroundColor: tech.color }}
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
