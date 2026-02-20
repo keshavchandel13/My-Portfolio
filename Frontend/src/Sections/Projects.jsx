@@ -9,7 +9,18 @@ const ProjectData = [
     image: "/jbm.png",
     techStack: "Node.js, React.js",
     link: "https://jbm-wg9v-keshavchandel13s-projects.vercel.app/",
+    github:""
   },
+  {
+    title: "Personalized- E-Com Website Sparkify",
+    description:
+      "A modern and scalable e-commerce platform built with Next.js and MongoDB featuring dynamic product rendering, admin-side product management (add/delete), optimized API handling, and smooth UI animations using Framer Motion. Designed with performance, clean architecture, and future feature expansion in mind.",
+    image: "/Sparkify.png",
+    techStack: "Next.js, MongoDB, Framer Motion",
+    link: "https://sparkify-shop.vercel.app/",
+    github:""
+  },
+  
   
   {
     title: "Zomato Clone: Food Delivery Platform",
@@ -18,8 +29,10 @@ const ProjectData = [
     image: "/zomato.png",
     techStack: "HTML, CSS",
     link: "/",
+    github:""
   },
   
+    
   {
     title: "Task Management Web App",
     description:
@@ -27,15 +40,7 @@ const ProjectData = [
     image: "/todo.png",
     techStack: "HTML5, CSS, JavaScript",
     link: "https://project-5-to-do-list.vercel.app/",
-  },
-  
-  {
-    title: "Text-to-Speech Converter Tool",
-    description:
-      "A web-based tool that converts text into speech, enhancing accessibility for various users.",
-    image: "/texttospeech.png",
-    techStack: "HTML5, CSS, JavaScript",
-    link: "https://project-01-text-to-speech.vercel.app/",
+    github:""
   },
   
   {
@@ -45,6 +50,7 @@ const ProjectData = [
     image: "/weather.png",
     techStack: "HTML5, CSS, JavaScript",
     link: "https://weather-app-nine-eta-91.vercel.app/",
+    github:""
   },
   
   {
@@ -54,6 +60,7 @@ const ProjectData = [
     image: "/billify.png",
     techStack: "Python, Flask, HTML5, CSS, MySQL",
     link: "/",
+    github:""
   },
 ];
 
@@ -82,7 +89,7 @@ const Projects = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-fill group-hover:scale-110 transition-transform duration-700"
               />
               
               {project.featured && (
