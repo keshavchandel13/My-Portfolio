@@ -34,12 +34,12 @@ const ProjectData = [
   
     
   {
-    title: "Task Management Web App",
+    title: "GYM- Website",
     description:
-      "A to-do list application for efficient task tracking, designed to boost productivity through an intuitive interface.",
-    image: "/todo.png",
+      "A Gym Website to scale your business across the world. Promte fitness get ranked on Internet",
+    image: "/gym.png",
     techStack: "HTML5, CSS, JavaScript",
-    link: "https://project-5-to-do-list.vercel.app/",
+    link: "https://gym-website-seven-dusky.vercel.app/",
     github:""
   },
   
