@@ -70,7 +70,7 @@ const Home = () => {
         </Link>
         
         <a 
-          href="/Keshav Chandel - Resume.pdf" 
+          href="/KeshavChandel-Resume.pdf" 
           download="KeshavChandelResume"
           className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gray-600 hover:border-amber-400 hover:text-amber-400 transition-all duration-300"
         >
